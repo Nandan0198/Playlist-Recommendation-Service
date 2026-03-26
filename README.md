@@ -164,12 +164,75 @@ Used to notify users on playlist updates (Email/Push).
 * Design Patterns in real-world systems
 
 ---
+## 🧪 API Testing (Postman)
 
-## 📸 Screenshots (Optional)
-
-> Add your Postman and console screenshots here
+All APIs were tested using Postman to validate functionality and performance.
 
 ---
+
+### ✅ Create Playlist
+
+**POST** `/api/playlists`
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "generated-id"
+  }
+}
+```
+
+📌 Playlist successfully created with auto-generated UUID.
+
+---
+
+### ✅ Get Playlist
+
+**GET** `/api/playlists/{id}`
+
+📌 Cache Behavior:
+
+* First request → Cache MISS
+* Second request → Cache HIT
+
+---
+
+### ✅ Recommendation API
+
+**GET** `/api/recommend?type=collab`
+
+📌 Uses Strategy Pattern for dynamic recommendations.
+
+---
+
+### ✅ Rate Limiting
+
+**GET** `/api/rate?user=user123`
+
+📌 Blocks excessive requests using Token Bucket algorithm.
+
+---
+
+## 📊 Testing Summary
+
+| Feature        | Status        |
+| -------------- | ------------- |
+| Playlist API   | ✅ Working     |
+| Caching        | ✅ Verified    |
+| Recommendation | ✅ Working     |
+| Rate Limiting  | ✅ Implemented |
+
+---
+
+## 📈 Key Observations
+
+* 🚀 Caching improves performance
+* 🔁 Reduces repeated computations
+* 🛡️ Rate limiting prevents API abuse
+
 
 ## 🤝 Contributing
 
